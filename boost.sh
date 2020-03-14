@@ -562,6 +562,8 @@ updateBoost()
         USING_MPI="using mpi ;" # trailing space needed
     fi
 
+    test -d "$BOOST_SRC/tools/build/src" || mkdir -p "$_"
+
     if [[ "$1" == "iOS" ]]; then
         cat > "$BOOST_SRC/tools/build/src/user-config.jam" <<EOF
 using darwin : ${IOS_SDK_VERSION}~iphone
